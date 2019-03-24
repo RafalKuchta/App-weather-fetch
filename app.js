@@ -1,7 +1,7 @@
 const Form = props => {
     return (
         <form>
-            <h1>Sprawdź pogodę</h1>
+            {/* <h1>Sprawdź pogodę</h1> */}
             <input
                 type="text"
                 placeholder="Wpisz miasto"
@@ -94,14 +94,16 @@ class App extends React.Component {
 
     render() {
         return (
+            <div className="wrapper">
+            <h1>Sprawdź pogodę</h1>
             <div className="wrapp">
                 <Form
-                    className="form"
                     value={this.state.value}
                     change={this.handleSubmitCity} />
                 <Result
                     className="result"
                     weather={this.state} />
+            </div>
             </div>
         )
     }
