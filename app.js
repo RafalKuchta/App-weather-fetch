@@ -1,6 +1,7 @@
 const Form = props => {
     return (
         <form>
+            <h1>Sprawdź pogodę</h1>
             <input
                 type="text"
                 placeholder="Wpisz miasto"
@@ -10,8 +11,8 @@ const Form = props => {
 }
 
 const Result = props => {
-    const { error, city, sunrise, sunset, temp, wind, preassure } = props.weather
-
+    const { error, city, sunrise, sunset, temp, wind, pressure } = props.weather
+console.log(pressure)
     let content = null
 
     if (!error && city) {
@@ -19,20 +20,20 @@ const Result = props => {
         const sunriseTime = new Date(sunrise * 1000).toLocaleTimeString()
         const sunsetTime = new Date(sunset * 1000).toLocaleTimeString()
         content = (
-            <div>
-                <h4>Pogoda dla miasta: <em>{city}</em></h4>
-                <h4>Dane dla dnia i godziny: <em>{time}</em></h4>
-                <h4>Wschód słońca dzisiaj: <em>{sunriseTime}</em></h4>
-                <h4>Zachód słońca dzisiaj: <em>{sunsetTime}</em></h4>
-                <h4>Temperatura: <em>{temp} &#176;C</em></h4>
-                <h4>Wiatr: <em>{wind} m.s</em></h4>
-                <h4>Ciśnienie: <em>{preassure} hPa</em></h4>
+            <div className="submenu">
+                <h4><p>Pogoda dla miasta:</p> <em>{city.toUpperCase()}</em></h4>
+                <h4><p>Dane dla dnia i godziny:</p> <em>{time}</em></h4>
+                <h4><p>Wschód słońca dzisiaj:</p> <em>{sunriseTime}</em></h4>
+                <h4><p>Zachód słońca dzisiaj:</p> <em>{sunsetTime}</em></h4>
+                <h4><p>Temperatura:</p> <em>{temp} &#176;C</em></h4>
+                <h4><p>Wiatr:</p> <em>{wind} m.s</em></h4>
+                <h4><p>Ciśnienie:</p> <em>{pressure} hPa</em></h4>
             </div>
         )
     }
 
     return (
-        <div>
+        <div className="error">
             {error ? `Nie ma w bazie ${city}` : content}
         </div>
     )
@@ -48,7 +49,7 @@ class App extends React.Component {
         sunset: "",
         temp: "",
         wind: "",
-        preassure: "",
+        pressure: "",
     }
 
     handleSubmitCity = e => {
@@ -78,7 +79,7 @@ class App extends React.Component {
                         sunset: data.sys.sunset,
                         wind: data.wind.speed,
                         temp: data.main.temp,
-                        preassure: data.main.preassure,
+                        pressure: data.main.pressure,
                     })
                 })
 
@@ -93,11 +94,13 @@ class App extends React.Component {
 
     render() {
         return (
-            <div>
+            <div className="wrapp">
                 <Form
+                    className="form"
                     value={this.state.value}
                     change={this.handleSubmitCity} />
                 <Result
+                    className="result"
                     weather={this.state} />
             </div>
         )

@@ -1,0 +1,59 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box
+}
+
+body {
+    height: 100vh;
+    background-image: linear-gradient(rgb(88, 198, 235), white);
+}
+
+
+form h1 {
+    padding: 30px;
+    width: 100%;
+    background-image: linear-gradient(#003c81, rgb(21, 87, 163));
+    font-family: 'roboto';
+    text-transform: uppercase;
+    letter-spacing: 5px;;
+    color: white;
+    border-bottom: 1px solid gray;
+}
+
+form input {
+    width: 300px;
+    margin: 30px;
+    border: 2px solid gray;
+    border-radius: 7px;
+    padding: 10px;
+    font-size: 20px;
+}
+
+
+div.submenu h4, .error {
+    margin: 20px;
+    font-family: 'roboto';
+    font-size: 20px; 
+}
+
+h4 {
+    display: flex;
+    align-items: center;
+    width: 800px;
+    border: 1px solid black;
+    padding: 10px 20px;
+}
+
+p {
+    width: 300px;
+}
+
+em {
+    font-size: 30px;
+    color: white;
+    padding: 10px 10px 10px 20px;
+    border-left: 1px solid black;
+    text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
+}
+
