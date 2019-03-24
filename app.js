@@ -95,7 +95,9 @@ class App extends React.Component {
     render() {
         return (
             <div className="wrapper">
+            <img src="bgco.jpg" alt="bgco"/>
             <h1>Sprawdź pogodę</h1>
+            
             <div className="wrapp">
                 <Form
                     value={this.state.value}

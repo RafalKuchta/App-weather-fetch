@@ -6,7 +6,8 @@
 
 body {
     height: 100vh;
-    background-image: linear-gradient(rgb(88, 198, 235), white);
+    /* background-image: url('bgco.jpg'); */
+    /* background-image: linear-gradient(rgb(88, 198, 235), white); */
 }
 
 .wrapp {
@@ -16,18 +17,26 @@ body {
     transform: translateX(-50%);
 }
 
+.wrapper img {
+    position: fixed;
+    height: 100%;
+    width: 100%;
+    z-index: -1;
+    filter: blur(3px);
+}
 
 .wrapper h1 {
     padding: 30px;
     text-align: center;
     width: 100%;
-    background-image: linear-gradient(#003c81, rgb(21, 87, 163));
+    background-image: linear-gradient(#003c81, rgb(21, 87, 163, .2));
     font-family: 'roboto';
     text-transform: uppercase;
     letter-spacing: 5px;;
     color: white;
     border-bottom: 1px solid gray;
-}
+    z-index: 1;
+ }
 
 form input {
     position: relative;
@@ -43,12 +52,13 @@ form input {
 }
 
 
-div.submenu h4, .error {
+div.submenu h4, div.error {
     margin: 20px 0;
     font-family: 'roboto';
     font-size: 20px; 
-    width: 800px;
+    /* width: 800px; */
 }
+
 
 h4 {
     display: flex;
